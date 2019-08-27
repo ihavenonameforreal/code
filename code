@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+def debug(string)
+  puts string
+  sleep 1
+end
+
+require_relative "lib/code.rb"
+
+arg = ARGV.first
+
+if Dir.exists?(arg)
+  Code::Application.start(arg)
+elsif File.exists?(arg)
+  Code.eval(File.read(arg))
+else
+  Code.eval(arg)
+end
