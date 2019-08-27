@@ -6,7 +6,7 @@ class Code
       @path = path
       @name = @path.split('/').last
       @definitions_path = "#{@path}/#{@name}.definitions"
-      @code_path = "#{@path}/#{@name}.code"
+      @journal_path = "#{@path}/#{@name}.journal"
       @data_path = "#{@path}/#{@name}.data"
     end
 
@@ -18,19 +18,19 @@ class Code
       File.read(@definitions_path)
     end
 
-    def code
-      File.read(@code_path)
-    end
-
-    def data
-      File.read(@data_path)
-    end
-
     def start
-      Code::Evaluator.eval(
-        definitions + "\n" + code,
-        data: Code::Data.load(data)
+      Code::Evaluator.eval(definitions,
+        data_path: @data_path,
+        journal_path: @journal_path
       )
+      
+      loop do
+        print '> '
+        Code::Evaluator.eval(gets.strip,
+          data_path: @data_path,
+          journal_path: @journal_path
+        )
+      end
     end
   end
 end

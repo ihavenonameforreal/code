@@ -21,8 +21,6 @@ class Code
           abort "not supported"
         end
       end
-
-      p @data
     end
   end
 end

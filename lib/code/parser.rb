@@ -15,10 +15,7 @@ class Code
     end
 
     def parse
-      p @text
-      debug('code parser code')
       @compiled.call("Parser.parse", @text)
-      debug('code parser code DONE')
     end
   end
 end
