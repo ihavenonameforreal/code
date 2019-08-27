@@ -2,14 +2,17 @@ require 'execjs'
 
 class Code
   class Evaluator
-    def initialize(text, data: nil)
+    def initialize(text, data_path: nil, journal_path: nil)
       @text = text
       @parsed = Code::Parser.parse(text)
-      @data = data || {}
+      @data_path = data_path
+      @data = data_path ? Code::Data.load(data_path) : {}
+      @journal_path = journal_path
+      @journal = journal_path ? Code::Data.load(journal_path) : []
     end
 
-    def self.eval(text, data: nil)
-      new(text, data: data).eval
+    def self.eval(text, data_path: nil, journal_path: nil)
+      new(text, data_path: data_path, journal_path: nil).eval
     end
 
     def eval
@@ -21,6 +24,8 @@ class Code
           abort "not supported"
         end
       end
+
+      p @data
     end
   end
 end
