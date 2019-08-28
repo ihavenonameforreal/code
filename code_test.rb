@@ -11,7 +11,6 @@ class TestCode < Test::Unit::TestCase
   end
 
   def test_for_application_smoke
-    # Code::Application.start('samples/donner')
+    Code::Application.start('samples/donner')
   end
 end
-

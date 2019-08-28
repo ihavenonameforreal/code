@@ -26,7 +26,7 @@ class Code
       
       loop do
         print '> '
-        Code::Evaluator.eval(gets.strip,
+        Code::Evaluator.eval("donner 1 a dorian", # gets.strip,
           data_path: @data_path,
           journal_path: @journal_path
         )

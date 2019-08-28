@@ -9,7 +9,7 @@ class Code
     end
 
     def self.dump(text)
-      JSON.dump(text)
+      JSON.pretty_generate(text)
     end
   end
 end
