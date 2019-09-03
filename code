@@ -4,6 +4,10 @@ require_relative "lib/code.rb"
 
 arg = ARGV.first
 
+if ARGV.count != 1
+  abort "USAGE: code (text/filename/directory)"
+end
+
 if Dir.exists?(arg)
   Code::Application.start(arg)
 elsif File.exists?(arg)
