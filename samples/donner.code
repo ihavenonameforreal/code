@@ -1,12 +1,5 @@
-définir un montant comme étant un entier positif
-definir une personne comme etant un objet
-
-définir donner un montant à une personne comme etant
-  RUBY
-    données[personne] ||= 0
-    données[personne] += montant
-  FIN DU RUBY
-
 donner 1 à dorian
 donner 1 à laurie
 donner 1 à damien
+donner 1 à damien de la part de dorian
+donner 1 à laurie de la part de dorian
