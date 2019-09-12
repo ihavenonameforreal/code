@@ -5,6 +5,9 @@ GEM
     power_assert (1.1.5)
     test-unit (3.3.3)
       power_assert
+    therubyrhino (2.1.2)
+      therubyrhino_jar (>= 1.7.4, < 1.7.9)
+    therubyrhino_jar (1.7.8)
 
 PLATFORMS
   ruby
@@ -12,6 +15,7 @@ PLATFORMS
 DEPENDENCIES
   execjs
   test-unit
+  therubyrhino
 
 BUNDLED WITH
    2.1.0.pre.1
