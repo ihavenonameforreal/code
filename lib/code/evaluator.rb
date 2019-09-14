@@ -27,20 +27,33 @@ class Code
       @parsed.each.with_index do |line, index|
         @journal << { line: line, time: Time.now, index: index }
 
-        @data[line["name"]] ||= 0
-        @data[line["name"]] += line["quantity"].to_i
-        @data[line["from"] || ""] ||= 0
-        @data[line["from"] || ""] -= line["quantity"].to_i
+        if line["verb"] == "donner"
+          @data[line["name"]] ||= 0
+          @data[line["name"]] += line["quantity"].to_i
+          @data[line["from"] || ""] ||= 0
+          @data[line["from"] || ""] -= line["quantity"].to_i
 
-        p line
-        p @data
+          p line
+          p @data
 
-        if @journal_path
-          File.write(@journal_path, Code::Data.dump(@journal))
-        end
+          if @journal_path
+            File.write(@journal_path, Code::Data.dump(@journal))
+          end
 
-        if @data_path
-          File.write(@data_path, Code::Data.dump(@data))
+          if @data_path
+            File.write(@data_path, Code::Data.dump(@data))
+          end
+        elsif line["verb"] == "afficher"
+          p @data
+        elsif line["verb"] == "help" || line["verb"] == "aide"
+          puts <<~HELP
+            donner MONTANT à PERSONNE (de la part de PERSONNE) (pour RAISON)
+            show
+            help
+            exit
+          HELP
+        elsif line["verb"] == "exit"
+          exit
         end
       end
     end
