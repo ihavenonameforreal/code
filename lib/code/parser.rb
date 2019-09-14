@@ -1,3 +1,4 @@
+require 'mini_racer'
 require 'execjs'
 
 class Code

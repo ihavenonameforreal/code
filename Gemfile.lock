@@ -2,20 +2,20 @@ GEM
   remote: https://rubygems.org/
   specs:
     execjs (2.7.0)
+    libv8 (7.3.492.27.1)
+    mini_racer (0.2.6)
+      libv8 (>= 6.9.411)
     power_assert (1.1.5)
     test-unit (3.3.3)
       power_assert
-    therubyrhino (2.1.2)
-      therubyrhino_jar (>= 1.7.4, < 1.7.9)
-    therubyrhino_jar (1.7.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   execjs
+  mini_racer
   test-unit
-  therubyrhino
 
 BUNDLED WITH
    2.1.0.pre.1

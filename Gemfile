@@ -1,5 +1,5 @@
 source "https://rubygems.org"
 
 gem "execjs"
-gem "therubyrhino"
+gem "mini_racer"
 gem "test-unit"

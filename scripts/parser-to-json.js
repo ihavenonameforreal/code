@@ -3,8 +3,7 @@
 Parser = require("./../lib/code/parser.js").Parser
 
 samples = [
-  "donner 1 a dorian",
-  "donner 2 a damien, donner 3 a dorian",
+  "donner 1 à dorian",
 ]
 
 for (sample of samples) {

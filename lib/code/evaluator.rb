@@ -6,9 +6,17 @@ class Code
       @text = text
       @parsed = Code::Parser.parse(text)
       @data_path = data_path
-      @data = data_path ? Code::Data.load(File.read(data_path)) : {}
+      @data = data_path ? Code::Data.load(read_file(data_path)) : {}
       @journal_path = journal_path
-      @journal = journal_path ? Code::Data.load(File.read(journal_path)) : []
+      @journal = journal_path ? Code::Data.load(read_file(journal_path)) : []
+    end
+
+    def read_file(filepath)
+      if File.exists?(filepath)
+        File.read(filepath)
+      else
+        File.write("", filepath)
+      end
     end
 
     def self.eval(text, data_path: nil, journal_path: nil)
@@ -19,12 +27,8 @@ class Code
       @parsed.each.with_index do |line, index|
         @journal << { line: line, time: Time.now, index: index }
 
-        if line["verb"] == "donner"
-          @data[line["value"]] ||= 0
-          @data[line["value"]] += line["quantity"].to_f
-        else
-          abort "not supported"
-        end
+        @data[line["name"]] ||= 0
+        @data[line["name"]] += line["quantity"].to_f
 
         if @data_path
           File.write(@data_path, Code::Data.dump(@data))
