@@ -32,6 +32,8 @@ class Code
 
         if @data_path
           File.write(@data_path, Code::Data.dump(@data))
+        else
+          p @data
         end
 
         if @journal_path
