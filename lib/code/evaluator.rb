@@ -15,7 +15,7 @@ class Code
       if File.exists?(filepath)
         File.read(filepath)
       else
-        File.write("", filepath)
+        File.write(filepath, "{}")
       end
     end
 
@@ -29,19 +29,18 @@ class Code
 
         @data[line["name"]] ||= 0
         @data[line["name"]] += line["quantity"].to_i
-        @data[line["from"]] ||= 0
-        @data[line["from"]] -= line["quantity"].to_i
+        @data[line["from"] || ""] ||= 0
+        @data[line["from"] || ""] -= line["quantity"].to_i
+
+        p line
+        p @data
 
         if @journal_path
           File.write(@journal_path, Code::Data.dump(@journal))
-        else
-          p line
         end
 
         if @data_path
           File.write(@data_path, Code::Data.dump(@data))
-        else
-          p @data
         end
       end
     end

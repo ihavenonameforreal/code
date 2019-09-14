@@ -16,7 +16,7 @@ class Code
     def start
       loop do
         print '> '
-        Code::Evaluator.eval(gets.strip,
+        Code::Evaluator.eval(STDIN.gets.strip,
           data_path: @data_path,
           journal_path: @journal_path
         )
