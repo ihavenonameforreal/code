@@ -28,16 +28,20 @@ class Code
         @journal << { line: line, time: Time.now, index: index }
 
         @data[line["name"]] ||= 0
-        @data[line["name"]] += line["quantity"].to_f
+        @data[line["name"]] += line["quantity"].to_i
+        @data[line["from"]] ||= 0
+        @data[line["from"]] -= line["quantity"].to_i
+
+        if @journal_path
+          File.write(@journal_path, Code::Data.dump(@journal))
+        else
+          p line
+        end
 
         if @data_path
           File.write(@data_path, Code::Data.dump(@data))
         else
           p @data
-        end
-
-        if @journal_path
-          File.write(@journal_path, Code::Data.dump(@journal))
         end
       end
     end

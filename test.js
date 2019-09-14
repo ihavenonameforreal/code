@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-Parser = require("./../lib/code/parser.js").Parser
+Parser = require("./lib/code/parser.js").Parser
 
 samples = [
-  "donner 1 à dorian",
+  "donner 3 à laurie de la part de dorian pour l'eau",
 ]
 
 for (sample of samples) {
