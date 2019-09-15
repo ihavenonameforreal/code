@@ -30,8 +30,8 @@ class Code
         @history << { line: line, time: Time.now, index: index }
 
         if line["verb"] == "donner"
-          @data[line["name"]] ||= 0
-          @data[line["name"]] += line["quantity"].to_i
+          @data[line["name"] || ""] ||= 0
+          @data[line["name"] || ""] += line["quantity"].to_i
           @data[line["from"] || ""] ||= 0
           @data[line["from"] || ""] -= line["quantity"].to_i
 
