@@ -42,8 +42,8 @@ class Code
         verb = line["verb"]
 
         if verb == "give"
-          to = (line["to"] || [""]).join(" ")
-          from = (line["from"] || [""]).join(" ")
+          to = line["to"] || [""]
+          from = line["from"] || [""]
           @data[to] ||= 0
           @data[to] += line["quantity"].to_i
           @data[from] ||= 0

@@ -5,8 +5,8 @@ Parser = require("./lib/code/parser.js").Parser
 samples = [
   "donner 1",
   "donner 10 à dorian",
-  "donner 0 à angélique de la part de dorian",
-  "donner 3 à laurie de la part de dorian pour l'eau",
+  "donner 0 à angélique de dorian",
+  "donner 3 à laurie de dorian pour l'eau",
   "aide",
   "quitter",
   "afficher",

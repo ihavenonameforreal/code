@@ -2,14 +2,12 @@
   {
     "line": {
       "verb": "give",
-      "quantity": "1",
-      "to": [
-        "michel"
-      ],
-      "from": null,
+      "quantity": "0",
+      "to": "angelique",
+      "from": "dorian",
       "for": null
     },
-    "time": "2019-09-16 15:42:16 +0200",
+    "time": "2019-09-16 16:55:04 +0200",
     "index": 0
   }
 ]
