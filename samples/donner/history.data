@@ -1,79 +1,20 @@
 [
   {
     "line": {
-      "verb": "donner",
+      "verb": "history"
+    },
+    "time": "2019-09-16 13:13:35 +0200",
+    "index": 0
+  },
+  {
+    "line": {
+      "verb": "give",
       "quantity": "0",
-      "name": "dorian",
-      "from": null,
+      "name": "angelique",
+      "from": "dorian",
       "for": null
     },
-    "time": "2019-09-15 21:13:43 +0200",
-    "index": 0
-  },
-  {
-    "line": {
-      "verb": "donner",
-      "quantity": "1",
-      "name": "dorian",
-      "from": null,
-      "for": null
-    },
-    "time": "2019-09-15 21:22:53 +0200",
-    "index": 0
-  },
-  {
-    "line": {
-      "verb": "donner",
-      "quantity": "1",
-      "name": "dorian",
-      "from": null,
-      "for": null
-    },
-    "time": "2019-09-15 21:25:27 +0200",
-    "index": 0
-  },
-  {
-    "line": {
-      "verb": "donner",
-      "quantity": "1",
-      "name": "dorian",
-      "from": null,
-      "for": null
-    },
-    "time": "2019-09-15 21:25:29 +0200",
-    "index": 0
-  },
-  {
-    "line": {
-      "verb": "donner",
-      "quantity": "1",
-      "name": null,
-      "from": null,
-      "for": null
-    },
-    "time": "2019-09-15 21:39:21 +0200",
-    "index": 0
-  },
-  {
-    "line": {
-      "verb": "donner",
-      "quantity": "1",
-      "name": null,
-      "from": null,
-      "for": null
-    },
-    "time": "2019-09-15 21:39:49 +0200",
-    "index": 0
-  },
-  {
-    "line": {
-      "verb": "donner",
-      "quantity": "10",
-      "name": null,
-      "from": null,
-      "for": null
-    },
-    "time": "2019-09-15 21:39:53 +0200",
+    "time": "2019-09-16 13:13:58 +0200",
     "index": 0
   }
 ]

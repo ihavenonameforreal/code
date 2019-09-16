@@ -25,31 +25,38 @@ class Code
       new(text, data_path: data_path, history_path: history_path).eval
     end
 
+    def save
+      if @history_path
+        File.write(@history_path, Code::Data.dump(@history))
+      end
+
+      if @data_path
+        File.write(@data_path, Code::Data.dump(@data))
+      end
+    end
+
     def eval
       @parsed.each.with_index do |line, index|
         @history << { line: line, time: Time.now, index: index }
 
-        if line["verb"] == "donner"
+        if line["verb"] == "give"
           @data[line["name"] || ""] ||= 0
           @data[line["name"] || ""] += line["quantity"].to_i
           @data[line["from"] || ""] ||= 0
           @data[line["from"] || ""] -= line["quantity"].to_i
-
-          p line
-          p @data
-
-          if @history_path
-            File.write(@history_path, Code::Data.dump(@history))
-          end
-
-          if @data_path
-            File.write(@data_path, Code::Data.dump(@data))
-          end
-        elsif line["verb"] == "afficher"
-          p @data
-        elsif line["verb"] == "help" || line["verb"] == "aide"
+          save
+        elsif line["verb"] == "reset"
+          @data = {}
+          @history = []
+          save
+        elsif line["verb"] == "history"
+          puts JSON.pretty_generate(@history)
+          save
+        elsif line["verb"] == "show"
+          puts JSON.pretty_generate(@data)
+        elsif line["verb"] == "help"
           puts <<~HELP
-            donner MONTANT à PERSONNE (de la part de PERSONNE) (pour RAISON)
+            donner MONTANT (à PERSONNE) (de la part de PERSONNE) (pour RAISON)
             afficher
             aide
             exit
