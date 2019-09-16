@@ -39,7 +39,9 @@ class Code
       @parsed.each.with_index do |line, index|
         @history << { line: line, time: Time.now, index: index }
 
-        if line["verb"] == "give"
+        verb = line["verb"]
+
+        if verb == "give"
           to = (line["to"] || [""]).join(" ")
           from = (line["from"] || [""]).join(" ")
           @data[to] ||= 0
@@ -47,24 +49,28 @@ class Code
           @data[from] ||= 0
           @data[from] -= line["quantity"].to_i
           save
-        elsif line["verb"] == "reset"
+        elsif verb == "reset"
           @data = {}
           @history = []
           save
-        elsif line["verb"] == "history"
+        elsif verb == "history"
           puts Code::Data.dump(@history)
           save
-        elsif line["verb"] == "show"
+        elsif verb == "show"
           puts Code::Data.dump(@data)
-        elsif line["verb"] == "help"
+        elsif verb == "help"
           puts <<~HELP
-            donner QUANTITÉE (à PERSONNE) (de la part de PERSONNE) (pour RAISON)
             afficher
             aide
-            exit
+            donner QUANTITÉE (à PERSONNE) (de la part de PERSONNE) (pour RAISON)
+            historique
+            quitter
+            recommencer
           HELP
-        elsif line["verb"] == "exit"
+        elsif verb == "exit"
           exit
+        else
+          abort "#{verb} not supported"
         end
       end
     end
