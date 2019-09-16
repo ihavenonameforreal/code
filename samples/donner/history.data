@@ -1,20 +1,3 @@
 [
-  {
-    "line": {
-      "verb": "history"
-    },
-    "time": "2019-09-16 13:13:35 +0200",
-    "index": 0
-  },
-  {
-    "line": {
-      "verb": "give",
-      "quantity": "0",
-      "name": "angelique",
-      "from": "dorian",
-      "for": null
-    },
-    "time": "2019-09-16 13:13:58 +0200",
-    "index": 0
-  }
+
 ]

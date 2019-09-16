@@ -40,23 +40,25 @@ class Code
         @history << { line: line, time: Time.now, index: index }
 
         if line["verb"] == "give"
-          @data[line["name"] || ""] ||= 0
-          @data[line["name"] || ""] += line["quantity"].to_i
-          @data[line["from"] || ""] ||= 0
-          @data[line["from"] || ""] -= line["quantity"].to_i
+          to = (line["to"] || [""]).join(" ")
+          from = (line["from"] || [""]).join(" ")
+          @data[to] ||= 0
+          @data[to] += line["quantity"].to_i
+          @data[from] ||= 0
+          @data[from] -= line["quantity"].to_i
           save
         elsif line["verb"] == "reset"
           @data = {}
           @history = []
           save
         elsif line["verb"] == "history"
-          puts JSON.pretty_generate(@history)
+          puts Code::Data.dump(@history)
           save
         elsif line["verb"] == "show"
-          puts JSON.pretty_generate(@data)
+          puts Code::Data.dump(@data)
         elsif line["verb"] == "help"
           puts <<~HELP
-            donner MONTANT (à PERSONNE) (de la part de PERSONNE) (pour RAISON)
+            donner QUANTITÉE (à PERSONNE) (de la part de PERSONNE) (pour RAISON)
             afficher
             aide
             exit
