@@ -1,16 +1,11 @@
 {
-  "angelique": {
-    "": 1
-  },
   "": {
-    "": -1,
-    "euros": -2
+    "": -1
   },
   "dorian": {
-    "euros": 2,
-    "patates douces": -3
+    "": 2
   },
-  "laurie": {
-    "patates douces": 3
+  "damien": {
+    "": -1
   }
 }

@@ -11,6 +11,7 @@ samples = [
   "donner 10 à dorian michel marié",
   "donner 0 à angélique de dorian",
   "donner 3 patates à laurie marié de dorian marié pour l'eau",
+  "donner trois verres d'eau à damien",
 ]
 
 for (sample of samples) {

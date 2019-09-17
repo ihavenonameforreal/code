@@ -2,6 +2,8 @@ require 'execjs'
 
 class Code
   class Evaluator
+    GRAMMAR_PATH = "lib/code/grammar.pegjs"
+
     def initialize(text, data_path: nil, history_path: nil)
       @text = text
       @parsed = Code::Parser.parse(text)
@@ -45,7 +47,7 @@ class Code
           to = line["to"] || ""
           from = line["from"] || ""
           unit = line["unit"] || ""
-          quantity = line["quantity"].to_i
+          quantity = translate_quantity(line["quantity"]).to_i
 
           @data[to] ||= {}
           @data[to][unit] ||= 0
@@ -78,6 +80,22 @@ class Code
           abort "#{verb} not supported"
         end
       end
+    end
+
+    private
+
+    def translate_quantity(quantity)
+      return quantity if quantity =~ /^[0-9]+$/
+      litteral_translations[quantity] || abort("#{quantity} not found")
+    end
+
+    def litteral_translations
+      lines = File.read(GRAMMAR_PATH).split("NUMBERS START").last
+      lines = lines.split("NUMBERS ENV").first.lines[0..-2]
+      translations = lines.map(&:split).map do |line|
+        [line[2], line[-1]]
+      end
+      Hash[translations]
     end
   end
 end
