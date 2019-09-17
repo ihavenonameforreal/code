@@ -42,12 +42,17 @@ class Code
         verb = line["verb"]
 
         if verb == "give"
-          to = line["to"] || [""]
-          from = line["from"] || [""]
-          @data[to] ||= 0
-          @data[to] += line["quantity"].to_i
-          @data[from] ||= 0
-          @data[from] -= line["quantity"].to_i
+          to = line["to"] || ""
+          from = line["from"] || ""
+          unit = line["unit"] || ""
+          quantity = line["quantity"].to_i
+
+          @data[to] ||= {}
+          @data[to][unit] ||= 0
+          @data[to][unit] += quantity
+          @data[from] ||= {}
+          @data[from][unit] ||= 0
+          @data[from][unit] -= quantity
           save
         elsif verb == "reset"
           @data = {}

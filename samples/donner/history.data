@@ -2,12 +2,37 @@
   {
     "line": {
       "verb": "give",
-      "quantity": "0",
+      "quantity": "1",
+      "unit": null,
       "to": "angelique",
+      "from": null,
+      "for": null
+    },
+    "time": "2019-09-17 13:27:53 +0200",
+    "index": 0
+  },
+  {
+    "line": {
+      "verb": "give",
+      "quantity": "2",
+      "unit": "euros",
+      "to": "dorian",
+      "from": null,
+      "for": null
+    },
+    "time": "2019-09-17 13:28:05 +0200",
+    "index": 0
+  },
+  {
+    "line": {
+      "verb": "give",
+      "quantity": "3",
+      "unit": "patates douces",
+      "to": "laurie",
       "from": "dorian",
       "for": null
     },
-    "time": "2019-09-16 16:55:04 +0200",
+    "time": "2019-09-17 13:28:47 +0200",
     "index": 0
   }
 ]
