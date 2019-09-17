@@ -1,19 +1,33 @@
 #!/usr/bin/env node
 
 Parser = require("./lib/code/parser.js").Parser
+process = require("process")
 
 samples = [
   "donner 1",
-  "donner 10 à dorian michel marié",
-  "donner 0 à angélique de dorian",
-  "donner 3 à laurie de dorian pour l'eau",
   "aide",
   "quitter",
   "afficher",
+  "donner 10 à dorian michel marié",
+  "donner 0 à angélique de dorian",
+  "donner 3 patates à laurie marié de dorian marié pour l'eau",
 ]
 
 for (sample of samples) {
   console.log("\n### " + sample + "\n")
-  tree = Parser.parse(sample)
-  console.log(JSON.stringify(tree, null, 2))
+  try {
+    tree = Parser.parse(sample)
+    console.log(JSON.stringify(tree, null, 2))
+  } catch(e) {
+    console.log(e.message)
+    console.log(sample)
+    offset = e.location.start.offset
+    arrow = ""
+    for (i = 1; i < offset; i += 1) {
+      arrow = arrow + "-"
+     }
+    console.log(arrow + '^')
+    console.log(JSON.stringify(e, null, 2))
+    process.exit(0)
+  }
 }
