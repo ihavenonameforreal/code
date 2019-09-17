@@ -90,12 +90,16 @@ class Code
     end
 
     def litteral_translations
+      translations = {}
       lines = File.read(GRAMMAR_PATH).split("NUMBERS START").last
-      lines = lines.split("NUMBERS ENV").first.lines[0..-2]
-      translations = lines.map(&:split).map do |line|
-        [line[2], line[-1]]
+      lines = lines.split("NUMBERS ENV").first.lines[0..-2].join("\n")
+      lines = lines.gsub(/[ ="\/]+/, ' ').map(&:split)
+      lines.each do |line|
+        line.split[1..-2].each do |word|
+          translations[word] = line.split.first
+        end
       end
-      Hash[translations]
+      translations
     end
   end
 end
