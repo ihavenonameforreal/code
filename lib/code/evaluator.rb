@@ -114,7 +114,7 @@ class Code
       end
 
       if line
-        return line[1]
+        return line[-1]
       else
         abort "#{quantity} not supported"
       end
