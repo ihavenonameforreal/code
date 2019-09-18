@@ -19,6 +19,8 @@ class Code
       if @history_path && File.exists?(@history_path)
         @history = Code::Data.load(File.read(@history_path))
       end
+
+      @definitions = {}
     end
 
     def self.eval(text, data_path: nil, history_path: nil)
@@ -41,7 +43,11 @@ class Code
 
         verb = line["verb"]
 
-        if verb == "give"
+        if verb == "define"
+          @definitions[line["name"]] = line["definition"]
+        elsif !@definitions.keys.include?(verb)
+          abort "#{verb} not defined"
+        elsif verb == "give" && 
           to = line["to"] || ""
           from = line["from"] || ""
           unit = line["unit"] || ""

@@ -13,6 +13,7 @@ samples = [
   "donner 3 patates à laurie marié de dorian marié pour l'eau",
   "donner trois verres d'eau à damien",
   "définir une personne comme étant un objet",
+  "définir afficher comme étant a; a"
 ]
 
 for (sample of samples) {
