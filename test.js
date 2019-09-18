@@ -12,6 +12,7 @@ samples = [
   "donner 0 à angélique de dorian",
   "donner 3 patates à laurie marié de dorian marié pour l'eau",
   "donner trois verres d'eau à damien",
+  "définir une personne comme étant un objet",
 ]
 
 for (sample of samples) {
