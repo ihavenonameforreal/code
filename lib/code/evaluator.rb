@@ -91,7 +91,7 @@ class Code
           puts <<~HELP
             afficher
             aide
-            donner QUANTITÉE (à PERSONNE) (de la part de PERSONNE) (pour RAISON)
+            donner QUANTITÉE (à PERSONNE) (de PERSONNE) (pour RAISON)
             historique
             quitter
             recommencer
