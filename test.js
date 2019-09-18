@@ -4,16 +4,16 @@ Parser = require("./lib/code/parser.js").Parser
 process = require("process")
 
 samples = [
-  "donner 1",
-  "aide",
-  "quitter",
-  "afficher",
-  "donner 10 à dorian michel marié",
-  "donner 0 à angélique de dorian",
-  "donner 3 patates à laurie marié de dorian marié pour l'eau",
-  "donner trois verres d'eau à damien",
-  "définir une personne comme étant un objet",
-  "définir afficher comme étant a; a"
+  "give 1",
+  "help",
+  "exit",
+  "show",
+  "give 10 to dorian michel marié",
+  "give 0 to angélique from dorian",
+  "give 3 patates to laurie marié from dorian marié for l'eau",
+  "give three verres d'eau to damien",
+  "define a person as un objet",
+  "define show as show; show"
 ]
 
 for (sample of samples) {

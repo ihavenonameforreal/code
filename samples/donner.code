@@ -1,9 +1,9 @@
-définir donner comme étant 1
-définir afficher comment étant 2
-donner 1 à dorian de mamie
-donner 1 à mamie de dorian
-donner 1 à dorian de mamie
-donner 2 à mamie de dorian
-donner 1 à mamie de dorian
-donner 1 à mamie de dorian
-afficher
+define give as 1
+define show as 2
+give 1 to dorian to mamie
+give 1 to mamie to dorian
+give 1 to dorian to mamie
+give 2 to mamie to dorian
+give 1 to mamie to dorian
+give 1 to mamie to dorian
+show
