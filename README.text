@@ -1,4 +1,6 @@
 TODO
 
+- .code define
+- .code import
 - .data parse
 - .data dump
