@@ -21,6 +21,7 @@ class Code
       end
 
       @definitions = {}
+      @values = {}
     end
 
     def self.eval(text, data_path: nil, history_path: nil)
@@ -44,42 +45,6 @@ class Code
         verb = line["verb"]
 
         if verb == "define"
-          @definitions[line["name"]] = line["definition"]
-        elsif !@definitions.keys.include?(verb)
-          abort "#{verb} not defined"
-        elsif verb == "give" && 
-          to = line["to"] || ""
-          from = line["from"] || ""
-          unit = line["unit"] || ""
-          quantity = translate_quantity(line["quantity"]).to_i
-
-          @data[to] ||= {}
-          @data[to][unit] ||= 0
-          @data[to][unit] += quantity
-          @data[from] ||= {}
-          @data[from][unit] ||= 0
-          @data[from][unit] -= quantity
-          save
-        elsif verb == "reset"
-          @data = {}
-          @history = []
-          save
-        elsif verb == "history"
-          puts Code::Data.dump(@history)
-          save
-        elsif verb == "show"
-          puts Code::Data.dump(@data)
-        elsif verb == "help"
-          puts <<~HELP
-            afficher
-            aide
-            donner QUANTITÉE (à PERSONNE) (de PERSONNE) (pour RAISON)
-            historique
-            quitter
-            recommencer
-          HELP
-        elsif verb == "exit"
-          exit
         else
           abort "#{verb} not supported"
         end
