@@ -14,9 +14,7 @@ let samples = [
 //  "give 3 potatoes to laurie marié from dorian marié for the water",
 //  "give three glasses of water to damien",
 //  "define a person as an object",
-`define show a string as (in ruby)
-  puts string
-(end of ruby)
+`define show a string as (in ruby) puts string
 define a person as an object`
 ]
 
@@ -28,7 +26,7 @@ for (sample of samples) {
     console.log(sample)
     column = e.location.start.column
     arrow = ""
-    for (i = 0; i < column; i += 1) {
+    for (i = 1; i < column; i += 1) {
       arrow = arrow + "-"
      }
     console.log(arrow + '^')
