@@ -1,5 +1,5 @@
-define give as 1
-define show as 2
+define give as ...
+define show as ...
 give 1 to dorian to mamie
 give 1 to mamie to dorian
 give 1 to dorian to mamie

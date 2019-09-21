@@ -1,3 +1,5 @@
 .DS_Store
 lib/code/parser.js
 samples/donner
+package.json
+node_modules
