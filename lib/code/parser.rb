@@ -16,7 +16,9 @@ class Code
     end
 
     def parse
-      @compiled.call("Parser.parse", @text)
+      @compiled.call("Parser.parse", @text).map do |line|
+        Code::Object[line]
+      end
     end
   end
 end

@@ -4,6 +4,7 @@ require_relative 'code/parser'
 require_relative 'code/evaluator'
 require_relative 'code/application'
 require_relative 'code/data'
+require_relative 'code/object'
 
 class Code
   def self.parse(text)

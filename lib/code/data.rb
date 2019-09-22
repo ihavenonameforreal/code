@@ -5,7 +5,7 @@ require 'json'
 class Code
   class Data
     def self.load(text)
-      JSON.parse(text)
+      Code::Object[JSON.parse(text)]
     end
 
     def self.dump(text)
