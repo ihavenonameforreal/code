@@ -44,7 +44,6 @@ class Code
           index: index, line: line, time: Time.now
         ]
 
-        p line
         if line.verb == "define"
           @definitions[line.signature.name] = Code::Object[
             signature: line.signature,
