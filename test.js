@@ -19,7 +19,8 @@ define show a person as (in ruby) p string
 define a person as an object
 define dorian as a person
 show "hello world"
-show dorian`
+show dorian`,
+`define show a string as (in ruby) puts string; show "hello world"`
 ]
 
 for (sample of samples) {

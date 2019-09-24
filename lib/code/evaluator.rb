@@ -39,6 +39,7 @@ class Code
     end
 
     def eval
+      p @parsed.size
       @parsed.each.with_index do |line, index|
         @history << Code::Object[
           index: index, line: line, time: Time.now
@@ -49,6 +50,9 @@ class Code
             signature: line.signature,
             definition: line.definition
           ]
+        elsif @definitions.keys.include?(line.verb)
+          definition = @definitions[line.verb]
+          p definition
         else
           abort "#{line.verb} not supported"
         end
