@@ -25,7 +25,7 @@ class Code
     end
 
     def self.eval(text, data_path: nil, history_path: nil)
-      new(text, data_path: data_path, history_path: history_path).eval
+      new(text, data_path: data_path, history_path: history_path).eval_
     end
 
     def save
@@ -38,7 +38,7 @@ class Code
       end
     end
 
-    def eval
+    def eval_
       @parsed.each.with_index do |line, index|
         @history << Code::Object[
           index: index, line: line, time: Time.now
@@ -49,7 +49,13 @@ class Code
             signature: line.signature,
             definition: line.definition,
             lambda: lambda do |parameters|
-              puts parameters[0].value.value
+              locals = ""
+              parameters.each.with_index do |parameter, index|
+                name = line.signature.parameters[index].value
+                locals += "#{name} = #{parameter.value.value.inspect}\n"
+              end
+
+              eval(locals + line.definition.code)
             end
           ]
         elsif @definitions.keys.include?(line.verb)
