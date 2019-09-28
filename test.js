@@ -14,12 +14,12 @@ let samples = [
 //  "give 3 potatoes to laurie marié from dorian marié for the water",
 //  "give three glasses of water to damien",
 //  "define a person as an object",
-`define show a string as (in ruby) puts string
-define show a person as (in ruby) p string
-define a person as an object
-define dorian as a person
-show "hello world"
-show dorian`,
+// `define show a string as (in ruby) puts string
+// define show a person as (in ruby) p string
+// define a person as an object
+// define dorian as a person
+// show "hello world"
+// show dorian`,
 `define show a string as (in ruby) puts string; show "hello world"`
 ]
 

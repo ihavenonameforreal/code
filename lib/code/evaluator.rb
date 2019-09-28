@@ -39,7 +39,6 @@ class Code
     end
 
     def eval
-      p @parsed.size
       @parsed.each.with_index do |line, index|
         @history << Code::Object[
           index: index, line: line, time: Time.now
@@ -48,13 +47,16 @@ class Code
         if line.verb == "define"
           @definitions[line.signature.name] = Code::Object[
             signature: line.signature,
-            definition: line.definition
+            definition: line.definition,
+            lambda: lambda do |parameters|
+              puts parameters[0].value.value
+            end
           ]
         elsif @definitions.keys.include?(line.verb)
           definition = @definitions[line.verb]
-          p definition
+          definition.lambda.call(line.parameters)
         else
-          abort "#{line.verb} not supported"
+          abort "#{line.verb} undefined"
         end
       end
     end

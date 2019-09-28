@@ -6,6 +6,7 @@ GEM
     mini_racer (0.2.6)
       libv8 (>= 6.9.411)
     power_assert (1.1.5)
+    pp (0.1.1)
     test-unit (3.3.3)
       power_assert
 
@@ -15,6 +16,7 @@ PLATFORMS
 DEPENDENCIES
   execjs
   mini_racer
+  pp
   test-unit
 
 BUNDLED WITH
