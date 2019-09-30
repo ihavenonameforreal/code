@@ -49,13 +49,18 @@ class Code
             signature: line.signature,
             definition: line.definition,
             lambda: lambda do |parameters|
-              locals = ""
-              parameters.each.with_index do |parameter, index|
-                name = line.signature.parameters[index].value
-                locals += "#{name} = #{parameter.value.value.inspect}\n"
-              end
+              if line.definition.language == "ruby"
+                locals = ""
+                parameters.each.with_index do |parameter, index|
+                  name = line.signature.parameters[index].value
+                  locals += "#{name} = #{parameter.value.value.inspect}\n"
+                end
 
-              eval(locals + line.definition.code)
+                eval(locals + line.definition.code)
+              elsif line.definition.language == "code"
+              else
+                "#{line.definition.language} not supported"
+              end
             end
           ]
         elsif @definitions.keys.include?(line.verb)

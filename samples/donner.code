@@ -1,9 +1,0 @@
-define give as ...
-define show as ...
-give 1 to dorian to mamie
-give 1 to mamie to dorian
-give 1 to dorian to mamie
-give 2 to mamie to dorian
-give 1 to mamie to dorian
-give 1 to mamie to dorian
-show
